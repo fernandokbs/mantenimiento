@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+
+<hibernate-mapping>
+    <class name="edu.uag.iidis.scec.modelo.Transporte"
+           table="transporte"
+           dynamic-update="false"
+           dynamic-insert="false">
+
+        <id name="id"
+            column="id"
+            type="java.lang.Long"
+            unsaved-value="null" >
+        </id>
+
+        <property name="tipo"
+            column="tipo"
+			type="java.lang.String"
+            unique="true" />
+
+        <property name="capacidad"
+			column="capacidad"
+            type="java.lang.Int" />
+
+    </class>
+
+</hibernate-mapping>

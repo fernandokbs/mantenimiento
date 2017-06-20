@@ -23,6 +23,11 @@
         <form-bean name="formaNuevaPersona"
                    type="edu.uag.iidis.scec.vista.FormaNuevaPersona">
         </form-bean>
+
+        <form-bean name="formaListadoTransporte"
+                   type="edu.uag.iidis.scec.vista.FormaListadoTransporte">
+        </form-bean>
+
         <form-bean name="formaNuevoRol"
                    type="edu.uag.iidis.scec.vista.FormaNuevoRol">
         </form-bean>
@@ -131,6 +136,16 @@
                     scope="request"
                     validate="false">
                 <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoUsuarios.jsp"/>
+                <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
+            </action>
+
+            <action path="/solicitarListarTransporte"
+                    type="edu.uag.iidis.scec.control.MCUListarTransporte"
+                    parameter="solicitarListarTransporte"
+                    name="FormaListadoTransporte"
+                    scope="request"
+                    validate="false">
+                <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoTransporte.jsp"/>
                 <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
             </action>
 
