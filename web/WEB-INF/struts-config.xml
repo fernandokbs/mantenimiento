@@ -318,6 +318,15 @@
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaHome.jsp"/>
             <forward name="fracaso" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=pantallaLogin.jsp"/>
         </action>
+        
+        <action path="/logout"
+            type="edu.uag.iidis.scec.control.MCULogout"
+            parameter="solicitarLogout"
+            scope="request"
+            validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=pantallaLogin.jsp"/>
+        </action>
+        
         <action path="/irInicio"
                 forward="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaHome.jsp" />
         <action path="/irBienvenida"
