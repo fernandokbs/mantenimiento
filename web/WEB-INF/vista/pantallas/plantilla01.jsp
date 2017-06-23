@@ -26,8 +26,7 @@
     </head>
 
     <body>
-        
-        <c:import url="/WEB-INF/vista/comun/barraMenu01.jsp" />
+        <c:import url="/WEB-INF/vista/comun/barraMenu01.jsp?file=${param.c}" />
         <section style="min-height: 100vh;"class="">
             <c:import url="/WEB-INF/vista/pantallas/${param.c}" />
         </section>

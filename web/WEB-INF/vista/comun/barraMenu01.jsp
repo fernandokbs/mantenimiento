@@ -1,4 +1,4 @@
-
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!-- IS: Barra Menu Principal -->
 <!--  <table class="barraMenu">
 <tr>
@@ -30,14 +30,14 @@
                  margin: 10px;" src="images/logo-upch.png" alt="upchiapas"/>
         </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-         
-            <li><a href="irInicio.do">Home</a></li>
-            <li><a href="solicitarVisualizarHoteles.do">Ver</a></li>
-            <li><a href="solicitarListarHoteles.do">Hoteles</a></li>
-            <li><a href="solicitarListarCriticaes.do">Criticas</a></li>
-            <li><a href="solicitarListarUsuarios.do">Usuarios</a></li>
-            <li><a href="solicitarBuscarHoteles.do">Buscar</a></li>
-            
+            <c:if test = "${param.c != 'pantallaLogin.jsp'}">
+                <li><a href="irInicio.do">Home</a></li>
+                <li><a href="solicitarVisualizarHoteles.do">Ver</a></li>
+                <li><a href="solicitarListarHoteles.do">Hoteles</a></li>
+                <li><a href="solicitarListarCriticaes.do">Criticas</a></li>
+                <li><a href="solicitarListarUsuarios.do">Usuarios</a></li>
+                <li><a href="solicitarBuscarHoteles.do">Buscar</a></li>
+            </c:if>
         </ul>
     </div>
 </nav>
