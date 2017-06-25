@@ -65,11 +65,12 @@
                             <a href='solicitarModificarLugar.do?id=<c:out value="${lugar.id}"/>&descripcion=<c:out value="${lugar.descripcion}"/>
                                &nombre=<c:out value="${lugar.nombre}"/>
                                &coordenadas=<c:out value="${lugar.coordenadas}"/>
+                               &imagen=<c:out value="${lugar.imagen}"/>
                                &estado=<c:out value="${lugar.estado}"/>
                                &pais=<c:out value="${lugar.pais}"/>
                                &moneda=<c:out value="${lugar.moneda}"/>
                                &poblacion=<c:out value="${lugar.poblacion}"/>
-                               &imagen=<c:out value="${lugar.imagen}"/>' 
+                               ' 
                                class="waves-effect waves-light blue btn">
                                
                                 <fmt:message key="formaListadoLugares.etiqueta.modificar" />
