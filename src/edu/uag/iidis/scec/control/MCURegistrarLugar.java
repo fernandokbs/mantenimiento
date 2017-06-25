@@ -86,7 +86,7 @@ public final class MCURegistrarLugar
         }
 
         
-        String filePath = getServlet().getServletContext().getRealPath("/") +"upload";
+        String filePath = getServlet().getServletContext().getRealPath("/");
         log.debug("ruta: " + filePath);
         File folder = new File(filePath);
         if(!folder.exists()){
@@ -108,7 +108,7 @@ public final class MCURegistrarLugar
             }
         }
         Lugar lugar = new Lugar(forma.getNombre(),
-                          forma.getDescripcion(),forma.getPoblacion(),forma.getCoordenadas(),forma.getEstado(),"upload\\"+fileName,forma.getPais(),forma.getMoneda());
+                          forma.getDescripcion(),forma.getPoblacion(),forma.getCoordenadas(),forma.getEstado(),fileName,forma.getPais(),forma.getMoneda());
 
         ManejadorLugares mr = new ManejadorLugares();
         int resultado = mr.crearLugar(lugar);

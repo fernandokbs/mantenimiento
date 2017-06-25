@@ -27,9 +27,11 @@
 
     <body>
         <c:import url="/WEB-INF/vista/comun/barraMenu01.jsp?file=${param.c}" />
-        <section style="min-height: 100vh;"class="">
+        <div class="">
+            <section style="min-height: 100vh;" class="">
             <c:import url="/WEB-INF/vista/pantallas/${param.c}" />
         </section>
+        </div>
         <c:import url="/WEB-INF/vista/comun/barraPie.jsp" />
     </body>
 </html>

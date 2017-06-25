@@ -8,10 +8,12 @@
   }
 </style>
 
-
-<h1>
-  <fmt:message key="formaNuevoCritica.titulo" />
-</h1>
+<div class="container">
+    <div class="center-align">
+    <h1>
+        <fmt:message key="formaNuevoCritica.titulo" />
+    </h1>
+</div>
 
 <div class="card horizontal">
   <div class="card-image">
@@ -98,6 +100,7 @@
     </form>
 
   </div>
+</div>
 </div>
 </div>
 

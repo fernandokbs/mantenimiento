@@ -16,9 +16,12 @@ function EliminarCritica(strCriticaName){
 
 <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
 
-<h1 style="text-align:center;">
-  <fmt:message key="formaListadoCriticaes.titulo" />
-</h1>
+<div class="container">
+    <div class="center-align">
+    <h1>
+        <fmt:message key="formaListadoCriticaes.titulo" />
+    </h1>
+</div>
 
 <div class="fixed-action-btn">
   <a href="solicitarAgregarCritica.do" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
@@ -94,6 +97,7 @@ function EliminarCritica(strCriticaName){
   </c:forEach>
 </tbody>
 </table>
+</div>
 </div>
 
 <script type="text/javascript">

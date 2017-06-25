@@ -69,9 +69,11 @@
   }
 </script>
 
-<h1>
-  <fmt:message key="formaNuevoHotel.titulo" />
-</h1>
+<div class="center-align">
+    <h1>
+        <fmt:message key="formaNuevoHotel.titulo" />
+    </h1>
+</div>
 
 <div class="card horizontal">
   <div class="card-image">

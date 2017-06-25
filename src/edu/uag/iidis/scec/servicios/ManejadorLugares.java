@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 
 import edu.uag.iidis.scec.modelo.Lugar;
 import edu.uag.iidis.scec.excepciones.*;
+import edu.uag.iidis.scec.modelo.Hotel;
 import edu.uag.iidis.scec.persistencia.LugarDAO;
 import edu.uag.iidis.scec.persistencia.hibernate.*;
 import net.webservicex.*;
@@ -194,6 +195,46 @@ public class ManejadorLugares {
         return port.getCurrencyByCountry(countryName);
     }
 
+    public boolean modificarLugar(Lugar lugar) {
+        boolean toReturn = false;
+        
+        if (this.log.isDebugEnabled()) {
+            this.log.debug(">guardarLugar(lugar)");
+        }
+        
+        try {
+
+            HibernateUtil.beginTransaction();
+
+//            Estado estadoByID = this.estadoDAO.buscarPorId(estado.getId(), true);
+//
+//            estadoByID.setNombre(estado.getNombre());
+//            estadoByID.setDescripcion(estado.getDescripcion());
+
+            //toReturn = this.estadoDAO.modificar(estado);
+            toReturn = this.dao.modificar( lugar );
+
+            HibernateUtil.commitTransaction();
+
+        } catch (ExcepcionInfraestructura ex) {
+
+            HibernateUtil.rollbackTransaction();
+
+            if (this.log.isWarnEnabled()) {
+
+                this.log.warn("< ExcepcionInfraestructura");
+
+            }
+
+        } finally {
+
+            HibernateUtil.closeSession();
+
+        }
+        
+        return toReturn;
+    }
+    
     public String getData(String cities,String path){
         String service ="";
         try {

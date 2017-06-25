@@ -21,9 +21,6 @@
   <fmt:message key="formaListadoUsuarios.titulo" />
 </h1>
 
-
-
-
  <div class="fixed-action-btn">
     <a href="solicitarAgregarUsuario.do" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
   </div>

@@ -282,6 +282,25 @@ public class LugarDAO {
         }
     }
 
+    public boolean modificar( Lugar lugar ) throws ExcepcionInfraestructura {
+        boolean toReturn = false;
+
+        if (this.log.isDebugEnabled()) {
+            this.log.debug(">modificar(estado)");
+        }
+        try {
+            HibernateUtil.getSession().saveOrUpdate(lugar);
+
+            toReturn = true;
+        } catch (HibernateException ex) {
+            if (this.log.isWarnEnabled()) {
+                this.log.warn("<HibernateException");
+            }
+            throw new ExcepcionInfraestructura(ex);
+        }
+        return toReturn;
+    }
+        
     public Collection buscarEstado(String nombreLugar)
             throws ExcepcionInfraestructura {
 

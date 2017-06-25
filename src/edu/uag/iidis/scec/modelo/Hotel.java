@@ -16,7 +16,7 @@ import java.util.*;
 public class Hotel extends ClaseBase
         implements Serializable {
 
-    private Long id;
+    private Long id; 
     private String nombre;
     private String descripcion;
 	private String precio;

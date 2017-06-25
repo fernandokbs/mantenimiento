@@ -105,7 +105,8 @@
 
     <body>
 
-        <div id="findhotels">
+        <div class="container">
+                    <div id="findhotels">
          Buscar hoteles en:
         </div>
 
@@ -166,6 +167,7 @@
         </table>
       </div>
     </div>
+        </div>
 
     <script>
 
