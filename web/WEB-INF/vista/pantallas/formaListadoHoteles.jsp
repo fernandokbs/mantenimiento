@@ -113,6 +113,7 @@ function EliminarHotel(strHotelName){
     </tr>
   </c:forEach>
 </tbody>
+
 </table>
 </div>
 
@@ -134,6 +135,7 @@ function EliminarHotel(strHotelName){
           document.getElementById("hotel").innerHTML="Page not found";
       }
       if (xmlhttp.readyState==4 && xmlhttp.status==200){
+          console.log(xmlhttp.responseText);
           document.getElementById("hotel").innerHTML=xmlhttp.responseText;
       }
     };

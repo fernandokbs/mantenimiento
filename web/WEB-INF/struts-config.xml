@@ -256,6 +256,16 @@
 
             <forward name="exito" path="/WEB-INF/vista/pantallas/formaOrdenarHotel.jsp"/>
         </action>
+        <!--Listado modulos Lugares -->
+        <action path="/ordenarLugaresPor"
+                type="edu.uag.iidis.scec.control.MCUOrdenarPor"
+                parameter="SolicitarOrdenarLugares"
+                name="formaListadoLugares"
+                scope="request"
+                validate="true">
+
+            <forward name="exito" path="/WEB-INF/vista/pantallas/formaOrdenarLugar.jsp"/>
+        </action>
 
         <action path="/solicitarAgregarUsuario"
                 type="edu.uag.iidis.scec.control.MCURegistrarUsuario"

@@ -342,4 +342,41 @@ public class LugarDAO {
             throw new ExcepcionInfraestructura(ex);
         }
     }
+    
+    public Collection ordenarLugaresPor(String attribute)
+            throws ExcepcionInfraestructura {
+
+        Collection lugares;
+
+        if (log.isDebugEnabled()) {
+            log.debug(">buscarTodos()");
+        }
+
+        try {
+            String hql = "from Lugar ORDER BY " + attribute;
+
+            if (log.isDebugEnabled()) {
+                log.debug(hql);
+            }
+
+            lugares = HibernateUtil.getSession()
+                    .createQuery(hql).list();
+            if (log.isDebugEnabled()) {
+                log.debug("<<<<<<<<< create query ok ");
+            }
+            /*hoteles = HibernateUtil.getSession()
+                                    .createCriteria(Hotel.class)
+                                    .list();*/
+
+            log.debug(">buscarTodos() ---- list   " + lugares.size());
+            log.debug(">buscarTodos() ---- contenido   " + lugares);
+        } catch (HibernateException e) {
+            if (log.isWarnEnabled()) {
+                log.warn("<HibernateException");
+            }
+            throw new ExcepcionInfraestructura(e);
+        }
+        return lugares;
+    }
+
 }

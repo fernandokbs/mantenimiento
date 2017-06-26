@@ -264,4 +264,45 @@ public class ManejadorLugares {
         return service;
     }
     
+        public Collection ordenarLugaresPor(String attribute) {
+        Collection resultado;
+
+        if (log.isDebugEnabled()) {
+            log.debug(">guardarUsuario(usuario)");
+        }
+
+        try {
+            HibernateUtil.beginTransaction();
+            resultado = dao.ordenarLugaresPor(attribute);
+            if (log.isDebugEnabled()) {
+                log.debug(">ret4rn h6te3");
+            }
+            HibernateUtil.commitTransaction();
+            return resultado;
+        } catch (ExcepcionInfraestructura e) {
+            HibernateUtil.rollbackTransaction();
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
+        }
+    }
+
+	public Collection listarHotelesPorNombre(String nombre) {
+        Collection resultado;
+
+        if (log.isDebugEnabled()) {
+            log.debug(">guardarUsuario(usuario)");
+        }
+        try {
+            HibernateUtil.beginTransaction();
+            resultado = dao.buscarLugar(nombre);
+            HibernateUtil.commitTransaction();
+            return resultado;
+        } catch (ExcepcionInfraestructura e) {
+            HibernateUtil.rollbackTransaction();
+            return null;
+        } finally {
+            HibernateUtil.closeSession();
+        }
+    }
 }

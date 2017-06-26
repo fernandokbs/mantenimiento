@@ -25,7 +25,49 @@ public final class MCUOrdenarPor
         extends MappingDispatchAction {
 
     private Log log = LogFactory.getLog(MCURegistrarUsuario.class);
-
+    
+    public ActionForward SolicitarOrdenarLugares(
+                ActionMapping mapping,
+                ActionForm form,
+                HttpServletRequest request,
+                HttpServletResponse response)
+            throws Exception
+    {
+        if (log.isDebugEnabled()) {
+            log.debug(">SolicitarOrdenarLugares");
+        }
+        if (isCancelled(request)) {
+            if (log.isDebugEnabled()) {
+                log.debug("<La acción fue cancelada");
+            }
+            return (mapping.findForward("cancelar"));
+        }
+        
+        FormaListadoLugares forma = (FormaListadoLugares)form;
+        ManejadorLugares ma = new ManejadorLugares();
+        Collection resultado = ma.ordenarLugaresPor(forma.getNombre());
+        
+        if (log.isDebugEnabled()) {
+            log.debug("<La acción retorno DAO");
+        }
+        ActionMessages errores = new ActionMessages();
+        if (resultado != null) {
+            if ( resultado.isEmpty() ) {
+                errores.add(ActionMessages.GLOBAL_MESSAGE,
+                    new ActionMessage("errors.registroVacio"));
+                saveErrors(request, errores);
+            } else {
+                forma.setLugares(resultado);
+            }
+            return (mapping.findForward("exito"));
+        } else {
+            log.error("Ocurrió un error de infraestructura");
+            errores.add(ActionMessages.GLOBAL_MESSAGE,
+                        new ActionMessage("errors.infraestructura"));
+            saveErrors(request, errores);
+            return ( mapping.findForward("fracaso") );
+        }
+    }
 
     public ActionForward SolicitarOrdenarHotel(
                 ActionMapping mapping,
