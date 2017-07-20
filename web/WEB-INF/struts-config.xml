@@ -70,6 +70,11 @@
     		<form-bean name="formaNuevoHotel"
                        type="edu.uag.iidis.scec.vista.FormaNuevoHotel">
             </form-bean>
+            
+            <form-bean name="formaNuevoRestaurante"
+                       type="edu.uag.iidis.scec.vista.FormaNuevoRestaurante">
+            </form-bean>
+            
     		<form-bean name="formaListadoHoteles"
                        type="edu.uag.iidis.scec.vista.FormaListadoHoteles">
             </form-bean>
@@ -500,7 +505,16 @@
                 validate="false">
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaAgregarHotel.jsp"/>
         </action>
-
+        
+         <action path="/solicitarAgregarRestaurante"
+                type="edu.uag.iidis.scec.control.MCURegistrarRestaurante"
+                parameter="solicitarRegistroRestaurante"
+                name="formaNuevoRestaurante"
+                scope="request"
+                validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaAgregarRestaurante.jsp"/>
+        </action>
+        
         <action path="/procesarEliminarRol"
                         type="edu.uag.iidis.scec.control.MCUEliminarRol"
                         parameter="procesarEliminarRol"
@@ -591,7 +605,18 @@
                 input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoHotel.jsp" >
             <forward name="exito" path="/solicitarListarHoteles.do" redirect="true"/>
         </action>
+        
+         <action path="/procesarRegistroRestaurante"
+                type="edu.uag.iidis.scec.control.MCURegistrarRestaurante"
+                parameter="procesarRegistroRestaurante"
+                name="formaNuevoRestaurante"
+                scope="request"
+                validate="true"
+                input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoRestaurante.jsp" >
+            <forward name="exito" path="/solicitarListarRestaurantes.do" redirect="true"/>
+        </action>
 
+        
         <action path="/procesarRegistroRol"
                    type="edu.uag.iidis.scec.control.MCURegistrarRol"
                    parameter="procesarRegistroRol"
