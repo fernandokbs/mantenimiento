@@ -73,6 +73,13 @@
     		<form-bean name="formaListadoHoteles"
                        type="edu.uag.iidis.scec.vista.FormaListadoHoteles">
             </form-bean>
+            
+            <!-- Formas Restaurantes -->
+            <form-bean name="formaListadoRestaurantes"
+                       type="edu.uag.iidis.scec.vista.FormaListadoRestaurantes">
+            </form-bean>
+            
+            
             <form-bean name="formaModificarHotel"
            type="edu.uag.iidis.scec.vista.FormaModificarHotel">
            </form-bean>
@@ -455,7 +462,18 @@
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoHoteles.jsp"/>
             <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
         </action>
-
+        
+        <!-- Route Hoteles -->
+         <action path="/solicitarListarRestaurantes"
+                type="edu.uag.iidis.scec.control.MCUListarRestaurantes"
+                parameter="solicitarListarRestaurantes"
+                name="formaListadoRestaurantes"
+                scope="request"
+                validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoRestaurantes.jsp"/>
+            <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
+        </action>
+        
         <action path="/solicitarRegistroLugar"
                         type="edu.uag.iidis.scec.control.MCURegistrarLugar"
                         parameter="solicitarRegistroLugar"
