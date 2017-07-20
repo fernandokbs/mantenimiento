@@ -67,6 +67,11 @@
         <form-bean name="formaEliminarHotel"
                        type="edu.uag.iidis.scec.vista.FormaEliminarHotel">
             </form-bean>
+            
+            <form-bean name="formaEliminarRestaurante"
+                       type="edu.uag.iidis.scec.vista.FormaEliminarRestaurante">
+            </form-bean>
+            
     		<form-bean name="formaNuevoHotel"
                        type="edu.uag.iidis.scec.vista.FormaNuevoHotel">
             </form-bean>
@@ -532,7 +537,16 @@
                 validate="false">
             <forward name="exito" path="/solicitarListarHoteles.do" redirect="true"/>
         </action>
-
+        
+        <action path="/procesarEliminarRestaurante"
+                type="edu.uag.iidis.scec.control.MCUEliminarRestaurante"
+                parameter="procesarEliminarRestaurante"
+                name="formaEliminarRestaurante"
+                scope="request"
+                validate="false">
+            <forward name="exito" path="/solicitarListarRestaurantes.do" redirect="true"/>
+        </action>
+        
         <action path="/procesarEliminarEstado"
                 type="edu.uag.iidis.scec.control.MCUEliminarEstado"
                 parameter="procesarEliminarEstado"
