@@ -53,6 +53,10 @@
                    type="edu.uag.iidis.scec.vista.FormaNuevoLugar">
         </form-bean>
         
+        	<form-bean name="formaNuevoTriplan"
+                   type="edu.uag.iidis.scec.vista.FormaNuevoTriplan">
+        </form-bean>
+        
         <form-bean name="formaEliminarLugar"
                    type="edu.uag.iidis.scec.vista.FormaEliminarLugar">
         </form-bean>
@@ -492,6 +496,15 @@
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoLugar.jsp"/>
         </action>
 
+        <action path="/solicitarRegistroTriplan"
+                        type="edu.uag.iidis.scec.control.MCURegistrarTriplan"
+                        parameter="solicitarRegistroTriplan"
+                        name="formaNuevoTriplan"
+                        scope="request"
+                        validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoTriplan.jsp"/>
+        </action>
+        
         <action path="/solicitarRegistroHotel"
                 type="edu.uag.iidis.scec.control.MCURegistrarHotel"
                 parameter="solicitarRegistroHotel"
@@ -591,6 +604,18 @@
             <forward name="volver" path="solicitarRegistroRol.do" redirect="true"/>
         </action>
 
+        <action path="/procesarRegistroTriplan"
+                   type="edu.uag.iidis.scec.control.MCURegistrarTriplan"
+                   parameter="procesarRegistroTriplan"
+                   name="formaNuevoTriplan"
+                   scope="request"
+                   validate="true"
+                   input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoTriplan.jsp" >
+            <forward name="cancelar" path="/solicitarListarTriplanes.do" redirect="true"/>
+            <forward name="exito" path="/solicitarListarTriplanes.do" redirect="true"/>
+            <forward name="volver" path="solicitarRegistroTriplan.do" redirect="true"/>
+        </action>
+        
         <action path="/procesarRegistroHotel"
                 type="edu.uag.iidis.scec.control.MCURegistrarHotel"
                 parameter="procesarRegistroHotel"
