@@ -87,6 +87,10 @@
                <form-bean name="formaEliminarUsuario"
                               type="edu.uag.iidis.scec.vista.FormaEliminarUsuario">
                    </form-bean>
+                   
+                   <form-bean name="formaEliminarTriplan"
+                              type="edu.uag.iidis.scec.vista.FormaEliminarTriplan">
+                   </form-bean>
 
            <form-bean name="formaEliminarCritica"
                           type="edu.uag.iidis.scec.vista.FormaEliminarCritica">
@@ -458,6 +462,15 @@
                 scope="request"
                 validate="false">
            <forward name="exito" path="/solicitarListarLugares.do" redirect="true"/>
+        </action>
+        
+        <action path="/procesarEliminarTriplan"
+                type="edu.uag.iidis.scec.control.MCUEliminarTriplan"
+                parameter="procesarEliminarTriplan"
+                name="formaEliminarTriplan"
+                scope="request"
+                validate="false">
+           <forward name="exito" path="/solicitarListarTriplanes.do" redirect="true"/>
         </action>
         
         <action path="/solicitarListarHoteles"
