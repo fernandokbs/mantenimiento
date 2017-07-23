@@ -7,6 +7,7 @@ import org.hibernate.criterion.Example;
 
 
 import edu.uag.iidis.scec.excepciones.ExcepcionInfraestructura;
+import edu.uag.iidis.scec.modelo.Hotel;
 import edu.uag.iidis.scec.modelo.Lugar;
 import edu.uag.iidis.scec.persistencia.hibernate.HibernateUtil;
 import org.apache.commons.logging.Log;
@@ -23,7 +24,42 @@ public class LugarDAO {
     public LugarDAO() {
     }
 
+    
+    
+    
+        public Lugar buscarPorNombre(String nombre)
+            throws ExcepcionInfraestructura {
 
+        if (log.isDebugEnabled()) {
+            log.debug(">buscarPorNombre(" + nombre + ")");
+        }
+
+        Lugar lugar = null;
+        try {
+            List lugares = HibernateUtil.getSession()
+                    .createQuery("from Lugar where nombre=:nombre")
+                    .setString("nombre", nombre)
+                    .list();
+
+            if ((lugares != null) && (lugares.size() > 0)) {
+                lugar = (Lugar)lugares.get(0);
+            }
+
+            if (lugar == null) {
+                if (log.isDebugEnabled()) {
+                    log.debug(">buscarPorNombre(" + nombre + ")");
+                }
+            }
+        } catch (HibernateException e) {
+            if (log.isWarnEnabled()) {
+                log.warn("<HibernateException");
+            }
+            throw new ExcepcionInfraestructura(e);
+        }
+
+        return lugar;
+    }
+    
     public Lugar buscarPorId(Long idLugar, boolean bloquear)
             throws ExcepcionInfraestructura {
 
