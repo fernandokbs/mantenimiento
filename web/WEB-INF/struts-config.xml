@@ -108,6 +108,11 @@
                <form-bean name="formaModificarCritica"
               type="edu.uag.iidis.scec.vista.FormaModificarCritica">
               </form-bean>
+              
+              <form-bean name="formaModificarTriplan"
+              type="edu.uag.iidis.scec.vista.FormaModificarTriplan">
+              </form-bean>
+              
     </form-beans>
 
 	<form-beans>
@@ -449,6 +454,15 @@
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarLugar.jsp"/>
         </action>
         
+        <action path="/solicitarModificarTriplan"
+                type="edu.uag.iidis.scec.control.MCUModificarTriplan"
+                parameter="solicitarModificarTriplan"
+                name="formaModificarTriplan"
+                scope="request"
+                validate="true">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarTriplan.jsp"/>
+        </action>
+        
         <action path="/procesarModificarLugar"
                 type="edu.uag.iidis.scec.control.MCUModificarLugar"
                 parameter="procesarModificarLugar"
@@ -457,6 +471,16 @@
                 validate="true"
                 input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarLugar.jsp" >
             <forward name="exito" path="/solicitarListarLugares.do" redirect="true"/>
+       </action>
+        
+         <action path="/procesarModificarTriplan"
+                type="edu.uag.iidis.scec.control.MCUModificarTriplan"
+                parameter="procesarModificarTriplan"
+                name="formaModificarTriplan"
+                scope="request"
+                validate="true"
+                input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarTriplan.jsp" >
+            <forward name="exito" path="/solicitarListarTriplanes.do" redirect="true"/>
        </action>
         
         <action path="/procesarEliminarLugar"
