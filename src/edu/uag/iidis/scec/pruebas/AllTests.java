@@ -17,9 +17,9 @@ public class AllTests extends TestCase {
 
         TestSuite suite = new TestSuite();
 
-//        suite.addTest(UsuarioDAOTest.suite());
-//        suite.addTest(HotelDAOTest.suite());
-//        suite.addTest(CriticaDAOTest.suite());
+        suite.addTest(UsuarioDAOTest.suite());
+        suite.addTest(HotelDAOTest.suite());
+        suite.addTest(CriticaDAOTest.suite());
         suite.addTest(LugarDAOTest.suite());
         return suite;
     }

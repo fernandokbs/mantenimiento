@@ -28,7 +28,7 @@ import junit.textui.TestRunner;
 
 public class LugarDAOTest extends TestCase {
     
-    public void testCrearHotelE() throws Exception {
+    public void testCrearLugarE() throws Exception {
         LugarDAO dao = new LugarDAO();
         
         Lugar lugar = new Lugar(
@@ -61,6 +61,43 @@ public class LugarDAOTest extends TestCase {
         }
     }
     
+    public void testCrearLugarF() throws Exception {
+        LugarDAO dao = new LugarDAO();
+        
+        Lugar lugar = new Lugar(
+                "lugar", "lugar", 400l, "54", "chiapas", "lugar.jpg", "mexico", "peso"
+        );
+        
+        try {
+
+            HibernateUtil.beginTransaction();
+            dao.hazPersistente(lugar);
+            HibernateUtil.commitTransaction();
+
+            HibernateUtil.beginTransaction();
+            dao.hazPersistente(lugar);
+            HibernateUtil.commitTransaction();
+            
+            HibernateUtil.beginTransaction();
+            Lugar lugarb = dao.buscarPorNombre(lugar.getNombre());
+            assertTrue(lugarb == null);
+            HibernateUtil.commitTransaction();
+
+            HibernateUtil.beginTransaction();
+            Lugar lugar2 = dao.buscarPorNombre(lugar.getNombre());
+            if (lugar2 != null) {
+                dao.hazTransitorio(lugar2);
+            }
+            HibernateUtil.commitTransaction();
+            
+        } catch (Exception e) {
+            HibernateUtil.rollbackTransaction();
+            throw e;
+        } finally {
+            HibernateUtil.closeSession();
+        }
+    }
+    
     public void testActualizarLugarE() throws Exception {
         LugarDAO dao = new LugarDAO();
         
@@ -73,11 +110,11 @@ public class LugarDAOTest extends TestCase {
             HibernateUtil.beginTransaction();
             dao.hazPersistente(lugar);
             HibernateUtil.commitTransaction();
-
-
+            
             HibernateUtil.beginTransaction();
             Lugar lugarB = dao.buscarPorNombre(lugar.getNombre());
-            lugarB.setNombre(lugarB.getNombre());
+            lugarB.setNombre("new " + lugarB.getNombre());
+            
             Boolean a = dao.modificar(lugarB);
             assertTrue(a);
             HibernateUtil.commitTransaction();

@@ -23,11 +23,8 @@ public class LugarDAO {
 
     public LugarDAO() {
     }
-
     
-    
-    
-        public Lugar buscarPorNombre(String nombre)
+     public Lugar buscarPorNombre(String nombre)
             throws ExcepcionInfraestructura {
 
         if (log.isDebugEnabled()) {
@@ -42,7 +39,7 @@ public class LugarDAO {
                     .list();
 
             if ((lugares != null) && (lugares.size() > 0)) {
-                lugar = (Lugar)lugares.get(0);
+                lugar = (Lugar) lugares.get(0);
             }
 
             if (lugar == null) {
@@ -59,7 +56,7 @@ public class LugarDAO {
 
         return lugar;
     }
-    
+
     public Lugar buscarPorId(Long idLugar, boolean bloquear)
             throws ExcepcionInfraestructura {
 
