@@ -64,6 +64,10 @@
                    type="edu.uag.iidis.scec.vista.FormaListadoLugares">
         </form-bean>
 
+        	<form-bean name="formaListadoTriplanes"
+                   type="edu.uag.iidis.scec.vista.FormaListadoTriplanes">
+        </form-bean>
+
         <form-bean name="formaEliminarHotel"
                        type="edu.uag.iidis.scec.vista.FormaEliminarHotel">
             </form-bean>
@@ -415,6 +419,16 @@
                         scope="request"
                         validate="false">
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoLugares.jsp"/>
+            <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
+        </action>
+        
+        <action path="/solicitarListarTriplanes"
+                        type="edu.uag.iidis.scec.control.MCUListarTriplanes"
+                        parameter="solicitarListarTriplanes"
+                        name="formaListadoTriplanes"
+                        scope="request"
+                        validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoTriplanes.jsp"/>
             <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
         </action>
         
