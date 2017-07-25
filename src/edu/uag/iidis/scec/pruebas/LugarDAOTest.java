@@ -233,6 +233,38 @@ public class LugarDAOTest extends TestCase {
         }
     }
     
+      public void testEliminarLugarF() throws Exception {
+        
+        LugarDAO dao = new LugarDAO();
+        Lugar lugar = new Lugar(
+                "LugarQueNoExiste", "lugar", 400l, "54", "chiapas", "lugar.jpg", "mexico", "peso"
+        );
+        
+        try {
+
+            HibernateUtil.beginTransaction();
+            dao.hazPersistente(lugar);
+            HibernateUtil.commitTransaction();
+
+            HibernateUtil.beginTransaction();
+            Lugar lugar2 = dao.buscarPorNombre(lugar.getNombre());
+            if (lugar2 != null) {
+              dao.hazTransitorio(lugar2);
+            }
+            HibernateUtil.commitTransaction();
+
+            Lugar lugarb = dao.buscarPorNombre(lugar.getNombre());
+
+            assertTrue(lugarb != null);
+
+        } catch (Exception e) {
+            HibernateUtil.rollbackTransaction();
+            throw e;
+        } finally{
+            HibernateUtil.closeSession();
+        }
+    }
+    
     public static Test suite() {
 
        TestSetup suite = new TestSetup(new TestSuite(LugarDAOTest.class)) {
