@@ -34,6 +34,7 @@
                 <li><a href="irInicio.do">Home</a></li>
                 <li><a href="solicitarVisualizarHoteles.do">Ver</a></li>
                 <li><a href="solicitarListarHoteles.do">Hoteles</a></li>
+                <li><a href="solicitarListarTriplanes.do">Triplanes</a>
                 <li><a href="solicitarListarCriticaes.do">Criticas</a></li>
                 <li><a href="solicitarListarUsuarios.do">Usuarios</a></li>
                 <li><a href="solicitarBuscarHoteles.do">Buscar</a></li>

@@ -53,6 +53,10 @@
                    type="edu.uag.iidis.scec.vista.FormaNuevoLugar">
         </form-bean>
         
+        	<form-bean name="formaNuevoTriplan"
+                   type="edu.uag.iidis.scec.vista.FormaNuevoTriplan">
+        </form-bean>
+        
         <form-bean name="formaEliminarLugar"
                    type="edu.uag.iidis.scec.vista.FormaEliminarLugar">
         </form-bean>
@@ -62,6 +66,10 @@
         
 		<form-bean name="formaListadoLugares"
                    type="edu.uag.iidis.scec.vista.FormaListadoLugares">
+        </form-bean>
+
+        	<form-bean name="formaListadoTriplanes"
+                   type="edu.uag.iidis.scec.vista.FormaListadoTriplanes">
         </form-bean>
 
         <form-bean name="formaEliminarHotel"
@@ -83,6 +91,10 @@
                <form-bean name="formaEliminarUsuario"
                               type="edu.uag.iidis.scec.vista.FormaEliminarUsuario">
                    </form-bean>
+                   
+                   <form-bean name="formaEliminarTriplan"
+                              type="edu.uag.iidis.scec.vista.FormaEliminarTriplan">
+                   </form-bean>
 
            <form-bean name="formaEliminarCritica"
                           type="edu.uag.iidis.scec.vista.FormaEliminarCritica">
@@ -96,6 +108,11 @@
                <form-bean name="formaModificarCritica"
               type="edu.uag.iidis.scec.vista.FormaModificarCritica">
               </form-bean>
+              
+              <form-bean name="formaModificarTriplan"
+              type="edu.uag.iidis.scec.vista.FormaModificarTriplan">
+              </form-bean>
+              
     </form-beans>
 
 	<form-beans>
@@ -418,6 +435,16 @@
             <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
         </action>
         
+        <action path="/solicitarListarTriplanes"
+                        type="edu.uag.iidis.scec.control.MCUListarTriplanes"
+                        parameter="solicitarListarTriplanes"
+                        name="formaListadoTriplanes"
+                        scope="request"
+                        validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaListadoTriplanes.jsp"/>
+            <forward name="fracaso" path="/WEB-INF/vista/pantallas/pantallaInicio.jsp"/>
+        </action>
+        
         <action path="/solicitarModificarLugar"
                 type="edu.uag.iidis.scec.control.MCUModificarLugar"
                 parameter="solicitarModificarLugar"
@@ -425,6 +452,15 @@
                 scope="request"
                 validate="true">
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarLugar.jsp"/>
+        </action>
+        
+        <action path="/solicitarModificarTriplan"
+                type="edu.uag.iidis.scec.control.MCUModificarTriplan"
+                parameter="solicitarModificarTriplan"
+                name="formaModificarTriplan"
+                scope="request"
+                validate="true">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarTriplan.jsp"/>
         </action>
         
         <action path="/procesarModificarLugar"
@@ -437,6 +473,16 @@
             <forward name="exito" path="/solicitarListarLugares.do" redirect="true"/>
        </action>
         
+         <action path="/procesarModificarTriplan"
+                type="edu.uag.iidis.scec.control.MCUModificarTriplan"
+                parameter="procesarModificarTriplan"
+                name="formaModificarTriplan"
+                scope="request"
+                validate="true"
+                input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaModificarTriplan.jsp" >
+            <forward name="exito" path="/solicitarListarTriplanes.do" redirect="true"/>
+       </action>
+        
         <action path="/procesarEliminarLugar"
                 type="edu.uag.iidis.scec.control.MCUEliminarLugar"
                 parameter="procesarEliminarLugar"
@@ -444,6 +490,15 @@
                 scope="request"
                 validate="false">
            <forward name="exito" path="/solicitarListarLugares.do" redirect="true"/>
+        </action>
+        
+        <action path="/procesarEliminarTriplan"
+                type="edu.uag.iidis.scec.control.MCUEliminarTriplan"
+                parameter="procesarEliminarTriplan"
+                name="formaEliminarTriplan"
+                scope="request"
+                validate="false">
+           <forward name="exito" path="/solicitarListarTriplanes.do" redirect="true"/>
         </action>
         
         <action path="/solicitarListarHoteles"
@@ -465,6 +520,15 @@
             <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoLugar.jsp"/>
         </action>
 
+        <action path="/solicitarRegistroTriplan"
+                        type="edu.uag.iidis.scec.control.MCURegistrarTriplan"
+                        parameter="solicitarRegistroTriplan"
+                        name="formaNuevoTriplan"
+                        scope="request"
+                        validate="false">
+            <forward name="exito" path="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoTriplan.jsp"/>
+        </action>
+        
         <action path="/solicitarRegistroHotel"
                 type="edu.uag.iidis.scec.control.MCURegistrarHotel"
                 parameter="solicitarRegistroHotel"
@@ -564,6 +628,18 @@
             <forward name="volver" path="solicitarRegistroRol.do" redirect="true"/>
         </action>
 
+        <action path="/procesarRegistroTriplan"
+                   type="edu.uag.iidis.scec.control.MCURegistrarTriplan"
+                   parameter="procesarRegistroTriplan"
+                   name="formaNuevoTriplan"
+                   scope="request"
+                   validate="true"
+                   input="/WEB-INF/vista/pantallas/plantilla01.jsp?c=formaNuevoTriplan.jsp" >
+            <forward name="cancelar" path="/solicitarListarTriplanes.do" redirect="true"/>
+            <forward name="exito" path="/solicitarListarTriplanes.do" redirect="true"/>
+            <forward name="volver" path="solicitarRegistroTriplan.do" redirect="true"/>
+        </action>
+        
         <action path="/procesarRegistroHotel"
                 type="edu.uag.iidis.scec.control.MCURegistrarHotel"
                 parameter="procesarRegistroHotel"
