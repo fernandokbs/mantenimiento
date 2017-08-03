@@ -312,6 +312,17 @@
 
             <forward name="exito" path="/WEB-INF/vista/pantallas/formaOrdenarLugar.jsp"/>
         </action>
+        
+        <action path="/ordenarTriplanesPor"
+                type="edu.uag.iidis.scec.control.MCUOrdenarPor"
+                parameter="SolicitarOrdenarTriplanes"
+                name="formaListadoTriplanes"
+                scope="request"
+                validate="true">
+
+            <forward name="exito" path="/WEB-INF/vista/pantallas/formaOrdenarTriplanes.jsp"/>
+        </action>
+
 
         <action path="/solicitarAgregarUsuario"
                 type="edu.uag.iidis.scec.control.MCURegistrarUsuario"

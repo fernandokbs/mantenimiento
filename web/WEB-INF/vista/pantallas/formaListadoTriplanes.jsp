@@ -145,7 +145,7 @@
       }
     };
 
-    xmlhttp.open("GET","ordenarLugaresPor.do?nombre=" + attribute , true );
+    xmlhttp.open("GET","ordenarTriplanesPor.do?nombre=" + attribute , true );
     xmlhttp.send();
 
     $(document).ready(function(){
