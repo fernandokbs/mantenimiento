@@ -140,7 +140,7 @@ function EliminarHotel(strHotelName){
       }
     };
 
-    xmlhttp.open("GET","ordenarHotelesPor.do?nombre=" + attribute , true );
+    xmlhttp.open("GET","ordenarRestaurantesPor.do?nombre=" + attribute , true );
     xmlhttp.send();
 
     $(document).ready(function(){

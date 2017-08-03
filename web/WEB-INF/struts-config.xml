@@ -283,7 +283,15 @@
                       <forward name="exito" path="/solicitarListarCriticaes.do" redirect="true"/>
                  </action>
 
+        <action path="/ordenarRestaurantesPor"
+                type="edu.uag.iidis.scec.control.MCUOrdenarPor"
+                parameter="SolicitarOrdenarRestaurante"
+                name="formaListadoRestaurantes"
+                scope="request"
+                validate="true">
 
+            <forward name="exito" path="/WEB-INF/vista/pantallas/formaOrdenarRestaurante.jsp"/>
+        </action>         
 
         <action path="/ordenarHotelesPor"
                 type="edu.uag.iidis.scec.control.MCUOrdenarPor"
