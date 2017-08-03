@@ -39,6 +39,7 @@
                 <li><a href="solicitarListarUsuarios.do">Usuarios</a></li>
                 <li><a href="solicitarBuscarHoteles.do">Buscar</a></li>
                 <li><a href="solicitarListarLugares.do">Lugares</a>
+                <li><a href="solicitarListarRestaurantes.do">Restaurantes</a>
                 <li><a href="logout.do"> Logout </a></li>
             </c:if>
         </ul>
