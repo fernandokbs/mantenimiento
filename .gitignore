@@ -3,8 +3,6 @@ conf/
 data/
 docs/
 nbproject/
-src/hibernate.cfg.xml
 dist/MALv0.1.war
 *.war
-build.xml
 nbbuild.xml
